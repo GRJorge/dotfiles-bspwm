@@ -1,0 +1,74 @@
+/*Tema creado por Jorge Garcia para Staidcat*/
+
+* {
+	black1:#0C1018;
+	black2:#111722;
+	black3:#161D2C;
+	black4:#1B2436;
+	black5:#202B41;
+	black6:#25324B;
+	pink:#FA3C82;
+	blue:#3CFAB4;
+	green:#3CFA55;
+	orange:#FAB43C;
+	red:#FA553C;
+	foreground:#E4E4E4;
+	background-color: @black1;
+	font: "Hack Nerd Font Mono 10";
+	text-color: @foreground;
+}
+window {
+	//location: south east;
+	//y-offset: -38px;
+	//x-offset: -8px;
+	width: 26%;
+	height: 50%;
+	border: 1px;
+	border-color: @black6;
+	border-radius: 2px;
+}
+mainbox {
+	margin: 0px;
+}
+inputbar {
+	margin: 16px 16px 0px 16px;		
+}
+prompt {
+	padding: 8px;
+	background-color: @blue;
+	text-color: @black1;
+	border-radius: 2px;
+}
+entry {
+	margin: 8px 8px;
+	border-radius: 2px;
+	vertical-align: 0.5;
+	//background-color: @black3;
+	//text-color: @black6;
+}
+listview {
+	columns: 1;	
+	margin: 8px 16px 0px 16px;
+}
+element {
+	padding: 16px;
+	margin: 4px 0px;
+}
+element selected {
+	background-color: @orange;
+	border-radius: 2px;
+}
+element-icon {
+	enabled: false;
+}
+element-text {
+	background-color: inherit;
+	vertical-align: 0.5;
+}
+element-text selected {
+	text-color: @black1;
+}
+mode-switcher {
+	enabled: false;
+}
+

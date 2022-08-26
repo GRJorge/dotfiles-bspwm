@@ -1,0 +1,119 @@
+##----------TERMINAL----------##
+super + Return
+	alacritty	
+
+##----------ROFI Y MENUS------##
+#Menu principal
+super + @space
+	rofi -show-icons -show drun
+#Power Menu
+super + p
+	bash ~/.config/rofi/power-menu/launch.sh
+#Keyboard Menu
+super + k
+	bash ~/.config/rofi/keyboards/launch.sh
+#Wifi Menu
+super + n
+	bash ~/.config/rofi/wifi/launch.sh
+#Screenshot Menu
+Print
+	bash ~/.config/rofi/screenshot/launch.sh
+##----------PROGRAMAS---------##
+super + {f,w}
+	{pcmanfm,firefox}
+
+##-------PROGRAMAS DE TERMINAL##
+
+super + {m,r}
+	{alacritty -e ncmpcpp,alacritty -e ranger}
+
+##----------BRILLO Y VOLUMEN--##
+XF86MonBrightnessUp
+	brightnessctl set +5%
+XF86MonBrightnessDown
+	brightnessctl set 5%-
+
+XF86AudioRaiseVolume
+      pamixer --increase 5
+XF86AudioLowerVolume
+      pamixer --decrease 5
+XF86AudioMute
+      pamixer --toggle-mute
+	
+##----------BSPWM-------------##
+
+# CERRAR PROGRAMAS
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# RECARGAR SXHKD
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# CERRAR/REINICAR BSPWM
+ctrl + shift + {q,r}
+	bspc {quit,wm -r}
+	
+# DESPLEGAR VENTANA HORIZONTAL O VERTICAL
+super + {h,v,q}
+	bspc node -p {east,south,cancel}
+
+# PRESELECCIONAR TAMANO DE VENTANA
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# FULLSCREEN
+super + shift + f
+#	bspc desktop -l next
+    bspc node -t "~"fullscreen
+
+# FLOTANTE
+super + shift + t
+    bspc node -t "~"{floating,tiled}
+
+# PSEUDO TILED
+super + alt + t
+#super + {p,t}
+    bspc node -t "~"{pseudo_tiled,tiled}
+
+# ASIGNAR ESTADO
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# SELECCIONAR O MOVER VENTANA
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# CAMBIAR A SIGUIENTE VENTANA
+alt + {_,shift + }Tab
+	bspc node -f {next.local,prev.local}
+
+# CAMBIAR DE WORKSPACE
+control + alt + {Left,Right}
+	bspc desktop -f {prev.local,next.local}
+
+# CAMBIAR AL ULTIMO WORKSPACE ABIERTO
+super + {Tab,grave}
+	bspc {node,desktop} -f last
+
+# CAMBIAR O ENVIAR A OTRO WORKSPACE
+super + {_,shift + }{1-8}
+	bspc {desktop -f,node -d} '^{1-8}'
+
+# EXPANDIR VENTANAS
+super + control + {Left,Right,Up,Down}
+	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+	
+# COMPRIMIR VENTANAS
+super + alt + {Left,Right,Up,Down}
+	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+	
+# MOVER VENTANAS FLOTANTES
+alt + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# OCULTAR/MOSTRAR VENTANAS
+super + shift + i
+	winmask		
+
+##---------- EOF ----------##
